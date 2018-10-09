@@ -15,3 +15,14 @@ go_proto_library(
 	compilers = ["@io_bazel_rules_go//proto:go_grpc"],
 	importpath = "bootcamp/proto/logger"
 )
+
+java_proto_library(
+    name = "logger_java_proto",
+    deps = [":logger_proto"],
+)
+
+java_grpc_library(
+    name = "logger_java_grpc",
+    srcs = [":logger_proto"],
+    deps = [":logger_java_proto"],
+)
