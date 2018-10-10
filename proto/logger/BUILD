@@ -1,3 +1,4 @@
+go/cmd/server/BUILD
 package(default_visibility = ["//visibility:public"])
 
 load("@io_grpc_grpc_java//:java_grpc_library.bzl", "java_grpc_library")
@@ -10,7 +11,7 @@ proto_library(
 )
 
 go_proto_library(
-	name = "logger_proto_library",
+	name = "logger_go_proto_library",
 	importpath = "bootcamp/proto/logger", # generated code path referenced in the `server.go`
 	proto = ":logger_proto",
 	compilers = ["@io_bazel_rules_go//proto:go_grpc"],

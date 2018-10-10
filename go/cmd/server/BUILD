@@ -4,7 +4,7 @@ go_binary(
     name = "server",
     srcs = ["server.go"],
     deps = [
-			"//proto/logger:logger_proto_library",
+			"//proto/logger:logger_go_proto_library",
 			"@com_github_golang_protobuf//jsonpb:go_default_library_gen",
 			"@org_golang_google_grpc//:go_default_library",
 			"@org_golang_google_grpc//reflection:go_default_library",
