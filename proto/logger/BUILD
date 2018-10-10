@@ -1,4 +1,3 @@
-go/cmd/server/BUILD
 package(default_visibility = ["//visibility:public"])
 
 load("@io_grpc_grpc_java//:java_grpc_library.bzl", "java_grpc_library")
@@ -8,6 +7,17 @@ proto_library(
 	name = "logger_proto",
 	srcs = ["logger.proto"],
 	# visibility = ["//visibility:public"], # default visibility rule above
+)
+
+java_proto_library (
+	name = "logger_java_proto_library",
+  deps = [":logger_proto"],
+)
+
+java_grpc_library(
+	name = "logger_java_grpc_library",
+	srcs = [":logger_proto"],
+  deps = [":logger_java_proto_library"],
 )
 
 go_proto_library(
